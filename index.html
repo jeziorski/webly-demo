@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Demo branżowe | Webly Mate</title>
+<meta name="description" content="Strony demonstracyjne Webly Mate dla siedmiu branż: kancelarie, sklepy meblowe i odzieżowe, biura rachunkowe, detailing, kursy online, biura podróży.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=latin-ext" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a1a;
+  --muted: #6b6b6b;
+  --line: #e5e5e5;
+  --bg: #ffffff;
+  --bg-alt: #f5f5f5;
+  --radius: 12px;
+  --bar-h: 64px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  background: var(--bg-alt);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+/* Pasek gorny */
+.bar {
+  height: var(--bar-h);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.brand { display: flex; align-items: center; gap: 12px; flex: 0 0 auto; text-decoration: none; color: inherit; }
+.brand img { height: 30px; width: auto; display: block; }
+.brand span { font-size: 13px; color: var(--muted); padding-left: 12px; border-left: 1px solid var(--line); white-space: nowrap; }
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 4px;
+  background: var(--bg-alt);
+  border-radius: 999px;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  font: 500 14px/1 Inter, sans-serif;
+  color: var(--muted);
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .15s, color .15s;
+}
+.tab:hover { color: var(--ink); }
+.tab[aria-selected="true"] { background: var(--ink); color: #fff; }
+
+.tools { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+.devices { display: flex; gap: 2px; padding: 4px; background: var(--bg-alt); border-radius: 999px; }
+.device {
+  width: 36px; height: 32px;
+  display: grid; place-items: center;
+  border: 0; background: transparent; color: var(--muted);
+  border-radius: 999px; cursor: pointer;
+}
+.device svg { width: 18px; height: 18px; }
+.device:hover { color: var(--ink); }
+.device[aria-pressed="true"] { background: var(--bg); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+.open {
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 40px; padding: 0 16px;
+  border: 1px solid var(--line); border-radius: 999px;
+  color: var(--ink); text-decoration: none;
+  font: 500 14px/1 Inter, sans-serif; white-space: nowrap;
+}
+.open:hover { border-color: var(--ink); }
+.open svg { width: 16px; height: 16px; }
+
+.pages {
+  height: 40px; max-width: 230px;
+  padding: 0 34px 0 14px;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%231a1a1a' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center;
+  font: 500 14px/1 Inter, sans-serif; color: var(--ink);
+  appearance: none; cursor: pointer;
+}
+.pages:hover { border-color: var(--ink); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Scena */
+.stage {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  overflow: hidden;
+}
+.frame {
+  position: relative;
+  height: 100%;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,.08);
+  display: flex;
+  flex-direction: column;
+  transform-origin: top center;
+  transition: width .25s ease;
+}
+.chrome {
+  flex: 0 0 auto;
+  height: 40px;
+  display: flex; align-items: center; gap: 12px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--line);
+  background: #fafafa;
+}
+.dots { display: flex; gap: 6px; }
+.dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); display: block; }
+.url {
+  flex: 1 1 auto; min-width: 0;
+  height: 26px; padding: 0 12px;
+  display: flex; align-items: center;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 999px;
+  font-size: 12px; color: var(--muted);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+iframe { flex: 1 1 auto; width: 100%; border: 0; display: block; background: var(--bg); }
+.loader {
+  position: absolute; inset: 40px 0 0 0;
+  display: grid; place-items: center;
+  background: var(--bg);
+  font-size: 14px; color: var(--muted);
+  transition: opacity .2s;
+}
+.loader[hidden] { display: none; }
+
+.note {
+  flex: 0 0 auto;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 0 20px 14px;
+}
+.note a { color: inherit; }
+
+@media (max-width: 1200px) {
+  .brand span { display: none; }
+  .tab { padding: 10px 13px; }
+  .pages { max-width: 190px; }
+}
+/* Waskie ekrany: bez ramki i bez przelacznika urzadzen */
+@media (max-width: 900px) {
+  .brand span, .devices, .open span { display: none; }
+  .open { width: 40px; padding: 0; justify-content: center; }
+}
+@media (max-width: 640px) {
+  .pages { max-width: 150px; }
+  :root { --bar-h: auto; }
+  .bar { flex-wrap: wrap; gap: 10px; padding: 10px 16px; }
+  .tabs { order: 3; flex-basis: 100%; }
+  .brand { flex: 1 1 auto; }
+  .stage { padding: 0; }
+  .frame { border-radius: 0; border: 0; box-shadow: none; width: 100% !important; transform: none !important; }
+  .chrome { display: none; }
+  .loader { inset: 0; }
+  .note { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="https://weblymate.com" target="_blank" rel="noopener">
+    <img src="assets/webly-mate.png" alt="Webly Mate" width="73" height="30">
+    <span>Demo branżowe</span>
+  </a>
+  <div class="tabs" role="tablist" aria-label="Wybierz branżę"></div>
+  <div class="tools">
+    <label class="sr-only" for="podstrona">Przejdź do podstrony</label>
+    <select class="pages" id="podstrona"></select>
+    <div class="devices" role="group" aria-label="Podgląd urządzenia">
+      <button class="device" type="button" data-w="0" aria-pressed="true" aria-label="Komputer" title="Komputer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+      </button>
+      <button class="device" type="button" data-w="820" aria-pressed="false" aria-label="Tablet" title="Tablet">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M11 18h2"/></svg>
+      </button>
+      <button class="device" type="button" data-w="390" aria-pressed="false" aria-label="Telefon" title="Telefon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></svg>
+      </button>
+    </div>
+    <a class="open" id="open" href="#" target="_blank" rel="noopener" aria-label="Otwórz demo w nowej karcie">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+      <span>Nowa karta</span>
+    </a>
+  </div>
+</header>
+
+<main class="stage" id="stage">
+  <div class="frame" id="frame">
+    <div class="chrome" aria-hidden="true">
+      <div class="dots"><i></i><i></i><i></i></div>
+      <div class="url" id="url"></div>
+    </div>
+    <iframe id="view" title="Podgląd strony demonstracyjnej" tabindex="0"></iframe>
+    <div class="loader" id="loader">Wczytuję demo…</div>
+  </div>
+</main>
+<p class="note">Projekty demonstracyjne <a href="https://weblymate.com" target="_blank" rel="noopener">Webly Mate</a>. Marki, dane i opinie są przykładowe. Strzałki w lewo i w prawo na klawiaturze przełączają branże.</p>
+
+<script>
+(function () {
+  var DEMA = [
+    { slug: 'kancelaria', nazwa: 'Kancelaria', domena: 'kancelaria-demo.pl', strony: [
+      ['index.html', 'Strona główna'], ['prawo-gospodarcze.html', 'Usługa: prawo gospodarcze'], ['prawo-rodzinne.html', 'Usługa: prawo rodzinne'], ['nieruchomosci.html', 'Usługa: nieruchomości'], ['jak-pracujemy.html', 'Jak pracujemy'], ['kancelaria.html', 'O kancelarii'], ['blog/index.html', 'Blog'], ['kontakt.html', 'Kontakt'] ] },
+    { slug: 'meble', nazwa: 'Meble', domena: 'meble-demo.pl', strony: [
+      ['index.html', 'Strona główna'], ['sofa-lena.html', 'Produkt: Sofa Lena'], ['stol-dlugi.html', 'Produkt: Stół Długi'], ['sofa-ola.html', 'Produkt: Sofa Ola'], ['sofa-lino.html', 'Produkt: Sofa Lino'], ['sofa-mila.html', 'Produkt: Sofa Mila'], ['fotel-lena.html', 'Produkt: Fotel Lena'], ['krzeslo-wita.html', 'Produkt: Krzesło Wita'], ['krzeslo-pola.html', 'Produkt: Krzesło Pola'], ['lampa-swit.html', 'Produkt: Lampa Świt'], ['stolik-krag.html', 'Produkt: Stolik Krąg'], ['biurko-kat.html', 'Produkt: Biurko Kąt'], ['sofy.html', 'Kategoria: sofy'], ['stoly.html', 'Kategoria: stoły i krzesła'], ['koszyk.html', 'Koszyk'], ['ulubione.html', 'Ulubione'], ['pracownia.html', 'Pracownia'], ['blog/index.html', 'Blog'] ] },
+    { slug: 'moda', nazwa: 'Moda', domena: 'moda-demo.pl', strony: [
+      ['index.html', 'Strona główna'], ['sukienka-warta.html', 'Produkt: Sukienka Warta'], ['marynarka-prosna.html', 'Produkt: Marynarka Prosna'], ['sweter-tatry.html', 'Produkt: Sweter Tatry'], ['koszula-wisla.html', 'Produkt: Koszula Wisła'], ['spodnie-odra.html', 'Produkt: Spodnie Odra'], ['kardigan-pilica.html', 'Produkt: Kardigan Pilica'], ['koszula-bzura.html', 'Produkt: Koszula Bzura'], ['sweter-san.html', 'Produkt: Sweter San'], ['spodnie-rega.html', 'Produkt: Spodnie Rega'], ['kobiety.html', 'Kategoria: kobiety'], ['mezczyzni.html', 'Kategoria: mężczyźni'], ['koszyk.html', 'Koszyk'], ['blog/index.html', 'Blog'] ] },
+    { slug: 'biuro-rachunkowe', nazwa: 'Księgowość', domena: 'biuro-demo.pl', strony: [
+      ['index.html', 'Strona główna'], ['ksiegowosc-jdg.html', 'Usługa: księgowość JDG'], ['pelna-ksiegowosc.html', 'Usługa: pełna księgowość'], ['kadry-i-place.html', 'Usługa: kadry i płace'], ['ksiegowosc-e-commerce.html', 'Usługa: e-commerce'], ['zmiana-biura.html', 'Zmiana biura'], ['wycena.html', 'Wycena'], ['blog/index.html', 'Blog'] ] },
+    { slug: 'detailing', nazwa: 'Detailing', domena: 'detailing-demo.pl', strony: [
+      ['index.html', 'Strona główna'], ['powloka-ceramiczna.html', 'Usługa: powłoka ceramiczna'], ['folia-ppf.html', 'Usługa: folia PPF'], ['korekta-lakieru.html', 'Usługa: korekta lakieru'], ['detailing-wnetrza.html', 'Usługa: wnętrze'], ['realizacje.html', 'Realizacje'], ['blog/index.html', 'Blog'] ] },
+    { slug: 'kursy', nazwa: 'Kursy', domena: 'kursy-demo.pl', strony: [
+      ['index.html', 'Strona główna'], ['kurs-grafika.html', 'Kurs: grafika'], ['kurs-excel.html', 'Kurs: Excel z AI'], ['kurs-ai.html', 'Kurs: AI w pracy'], ['kurs-marketing.html', 'Kurs: marketing'], ['kurs-identyfikacja.html', 'Kurs: identyfikacja'], ['kurs-rolki.html', 'Kurs: rolki'], ['kursy.html', 'Katalog kursów'], ['abonament.html', 'Abonament'], ['darmowa-lekcja.html', 'Darmowa lekcja'], ['blog/index.html', 'Blog'] ] },
+    { slug: 'podroze', nazwa: 'Podróże', domena: 'podroze-demo.pl', strony: [
+      ['index.html', 'Strona główna'], ['egipt.html', 'Wyprawa: Egipt'], ['jordania.html', 'Wyprawa: Jordania'], ['maroko.html', 'Wyprawa: Maroko'], ['islandia.html', 'Wyprawa: Islandia'], ['kierunki.html', 'Kierunki i terminy'], ['opinie.html', 'Opinie'], ['blog/index.html', 'Blog'] ] }
+  ];
+  var tabs = document.querySelector('.tabs');
+  var view = document.getElementById('view');
+  var frame = document.getElementById('frame');
+  var stage = document.getElementById('stage');
+  var loader = document.getElementById('loader');
+  var urlBox = document.getElementById('url');
+  var openLink = document.getElementById('open');
+  var deviceBtns = document.querySelectorAll('.device');
+  var pages = document.getElementById('podstrona');
+  pages.addEventListener('change', function () {
+    var d = DEMA[aktywny];
+    loader.hidden = false;
+    view.src = d.slug + '/' + pages.value;
+    openLink.href = d.slug + '/' + pages.value;
+  });
+  var szerokosc = 0;
+  var aktywny = -1;
+
+  DEMA.forEach(function (d, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'tab';
+    b.setAttribute('role', 'tab');
+    b.id = 'tab-' + d.slug;
+    b.setAttribute('aria-controls', 'view');
+    b.textContent = d.nazwa;
+    b.addEventListener('click', function () { wybierz(i, true); });
+    tabs.appendChild(b);
+  });
+  var tabBtns = tabs.querySelectorAll('.tab');
+
+  function wybierz(i, aktualizujHash) {
+    if (i < 0 || i >= DEMA.length) i = 0;
+    if (i === aktywny) return;
+    aktywny = i;
+    var d = DEMA[i];
+    tabBtns.forEach(function (b, j) {
+      b.setAttribute('aria-selected', j === i ? 'true' : 'false');
+      b.tabIndex = j === i ? 0 : -1;
+    });
+    tabBtns[i].scrollIntoView({ block: 'nearest', inline: 'center' });
+    pages.innerHTML = '';
+    d.strony.forEach(function (st) {
+      var o = document.createElement('option');
+      o.value = st[0];
+      o.textContent = st[1];
+      pages.appendChild(o);
+    });
+    loader.hidden = false;
+    view.src = d.slug + '/index.html';
+    view.title = 'Podgląd strony demonstracyjnej: ' + d.nazwa;
+    urlBox.textContent = d.domena;
+    openLink.href = d.slug + '/index.html';
+    document.title = d.nazwa + ' | Demo branżowe Webly Mate';
+    if (aktualizujHash) history.replaceState(null, '', '#' + d.slug);
+  }
+
+  // Pasek adresu pokazuje podstrone (dziala na http; przy file:// zostaje domena)
+  view.addEventListener('load', function () {
+    loader.hidden = true;
+    var d = DEMA[aktywny];
+    try {
+      var sciezka = view.contentWindow.location.pathname;
+      var i = sciezka.indexOf('/' + d.slug + '/');
+      var reszta = i >= 0 ? sciezka.slice(i + d.slug.length + 2).replace(/index\.html$/, '') : '';
+      urlBox.textContent = d.domena + (reszta ? '/' + reszta : '');
+      var klucz = reszta || 'index.html';
+      if (klucz === 'blog/') klucz = 'blog/index.html';
+      var znana = d.strony.some(function (st) { return st[0] === klucz; });
+      if (znana) pages.value = klucz;
+      openLink.href = d.slug + '/' + (reszta || 'index.html');
+    } catch (e) {
+      urlBox.textContent = d.domena;
+    }
+  });
+
+  // Klawiatura w pasku zakladek (wzorzec ARIA tablist)
+  tabs.addEventListener('keydown', function (e) {
+    var n = DEMA.length, i = aktywny;
+    if (e.key === 'ArrowRight') i = (aktywny + 1) % n;
+    else if (e.key === 'ArrowLeft') i = (aktywny - 1 + n) % n;
+    else if (e.key === 'Home') i = 0;
+    else if (e.key === 'End') i = n - 1;
+    else return;
+    e.preventDefault();
+    wybierz(i, true);
+    tabBtns[i].focus();
+  });
+  // Strzalki poza polami formularza i poza iframe
+  document.addEventListener('keydown', function (e) {
+    if (e.target.closest && e.target.closest('.tabs, input, textarea, select')) return;
+    if (e.key === 'ArrowRight') wybierz((aktywny + 1) % DEMA.length, true);
+    else if (e.key === 'ArrowLeft') wybierz((aktywny - 1 + DEMA.length) % DEMA.length, true);
+  });
+
+  // Podglad urzadzen: stala szerokosc, skalowanie gdy scena jest wezsza
+  function dopasuj() {
+    var dostepna = stage.clientWidth - 40;
+    if (!szerokosc || window.innerWidth <= 640) {
+      frame.style.width = '100%';
+      frame.style.transform = 'none';
+      frame.style.height = '100%';
+      return;
+    }
+    var w = szerokosc + 2;
+    var skala = Math.min(1, dostepna / w);
+    frame.style.width = w + 'px';
+    frame.style.transform = skala < 1 ? 'scale(' + skala + ')' : 'none';
+    frame.style.height = (skala < 1 ? (stage.clientHeight - 40) / skala : stage.clientHeight - 40) + 'px';
+  }
+  deviceBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      szerokosc = parseInt(b.getAttribute('data-w'), 10);
+      deviceBtns.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      dopasuj();
+    });
+  });
+  window.addEventListener('resize', dopasuj);
+
+  function zHasha() {
+    var slug = location.hash.replace('#', '');
+    var i = DEMA.findIndex(function (d) { return d.slug === slug; });
+    wybierz(i, i < 0);
+  }
+  window.addEventListener('hashchange', zHasha);
+  zHasha();
+  dopasuj();
+})();
+</script>
+</body>
+</html>
