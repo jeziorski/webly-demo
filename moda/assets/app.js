@@ -419,14 +419,7 @@
     });
   }
 
-  // Ciasteczka: baner informacyjny (przyklad), rowna waga przyciskow
-  var ck=$('#cookie');
-  if(ck){
-    var choice=store.get('osnowa-cookie',null);
-    if(!choice)ck.hidden=false;
-    $$('[data-cookie]',ck).forEach(function(b){b.addEventListener('click',function(){store.set('osnowa-cookie',b.getAttribute('data-cookie'));ck.hidden=true;showToast('Zapisaliśmy Twój wybór (przykład, demo nie używa ciasteczek).')})});
-    $$('[data-cookie-open]').forEach(function(b){b.addEventListener('click',function(){ck.hidden=false;var f=$('button',ck);if(f)f.focus()})});
-  }
+  /* baner zgod: wm-zgody (assets/wm-zgody, _narzedzia/wm-zgody-demo.py) */
 
   // Wejscia sekcji, rysowanie ikon, liczniki: raz przy wejsciu w widok
   var els=$$('.reveal,.stagger,.draw,.draw-lines,.an-list');

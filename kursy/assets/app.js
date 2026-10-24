@@ -454,18 +454,5 @@
     r.addEventListener('input',set);set();
   });
 
-  /* --- informacja o cookies (przyklad) --- */
-  var CK='prosto-cookies';
-  function getCk(){try{return localStorage.getItem(CK)}catch(e){return null}}
-  function setCk(v){try{localStorage.setItem(CK,v)}catch(e){}}
-  function showCookies(focus){
-    if(document.getElementById('cookies'))return;
-    var d=document.createElement('section');d.className='cookies';d.id='cookies';d.setAttribute('aria-labelledby','ck-h');
-    d.innerHTML='<h2 id="ck-h">Pliki cookies (przykład)</h2><p>Analityczne i marketingowe włączymy tylko za Twoją zgodą. <a href="'+base+'polityka-prywatnosci.html#cookies">Szczegóły</a></p><div class="row"><button type="button" class="btn btn-ghost" data-ck="odrzucone">Odrzucam</button><button type="button" class="btn btn-ghost" data-ck="zaakceptowane">Akceptuję</button></div>';
-    document.body.appendChild(d);
-    d.addEventListener('click',function(e){var b=e.target.closest('[data-ck]');if(!b)return;setCk(b.getAttribute('data-ck'));d.remove();say('Zapisano wybór dotyczący plików cookies.')});
-    if(focus){var f=d.querySelector('button');if(f)f.focus()}
-  }
-  if(!getCk())showCookies(false);
-  document.querySelectorAll('[data-cookies]').forEach(function(b){b.addEventListener('click',function(){showCookies(true)})});
+  /* baner zgod: wm-zgody (assets/wm-zgody, _narzedzia/wm-zgody-demo.py) */
 })();

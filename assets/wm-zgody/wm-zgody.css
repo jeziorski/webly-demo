@@ -1,0 +1,34 @@
+/* WM Zgody: wyglad na zmiennych --wmz-* (nadpisywane przez tryb wygladu z motywu albo przez CSS motywu); wartosci zapasowe = wyglad domyslny */
+.wm-zgody{--wmz-tlo:#fff;--wmz-tekst:#1a1a1a;--wmz-tekst2:#4b5563;--wmz-ramka:#dbe5f7;--wmz-akcent:#2563eb;--wmz-r:20px;
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:2147483000;display:flex;justify-content:center;font:15px/1.55 var(--wmz-font,Inter,'Inter Fallback',system-ui,-apple-system,'Segoe UI',Arial,sans-serif);color:var(--wmz-tekst)}
+/* zalogowani: arkusz wp-components WordPressa ma [role="region"]{position:relative}; wyzsza waga selektora utrzymuje baner przy dolnej krawedzi */
+.wm-zgody[role]{position:fixed}
+.wm-zgody[hidden],.wm-zgody [hidden],.wm-zgody-ikona[hidden]{display:none!important}
+/* zgoda juz zapisana: skrypt w head dodaje klase, baner nie pojawia sie nawet na chwile */
+.wmz-ok .wm-zgody{display:none!important}
+.wm-zgody-in{width:min(760px,100%);max-height:calc(100vh - 32px);overflow:auto;padding:22px 24px;border-radius:var(--wmz-r);background:var(--wmz-tlo);border:var(--wmz-ramka-szer,1px) solid var(--wmz-ramka);box-shadow:var(--wmz-cien,0 24px 60px -24px rgba(15,31,61,.45))}
+.wm-zgody-t{margin:0 0 6px;font-size:17px;font-weight:600;line-height:1.35}
+.wm-zgody-p{margin:0;color:var(--wmz-tekst2)}
+.wm-zgody-p a{color:var(--wmz-link,var(--wmz-akcent));text-decoration:underline;text-underline-offset:2px}
+.wm-zgody-kat{display:grid;gap:10px;margin:16px 0 0}
+.wm-zgody-k{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--wmz-ramka);border-radius:var(--wmz-r-k,14px);cursor:pointer}
+.wm-zgody-k input{flex:none;width:20px;height:20px;margin:2px 0 0;accent-color:var(--wmz-btn-tlo,var(--wmz-akcent));cursor:pointer}
+.wm-zgody-k input:disabled{cursor:not-allowed}
+.wm-zgody-k b{display:block;margin-bottom:2px;font-weight:600}
+.wm-zgody-k span{font-size:14px;color:var(--wmz-tekst2)}
+.wm-zgody-id{margin:0;font-size:12.5px;color:var(--wmz-tekst2);word-break:break-all}.wm-zgody-id code{font-size:12px}
+.wm-zgody-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+/* akceptacja i odmowa: ta sama waga wizualna (wymog: odmowa rownie latwa jak zgoda) */
+.wm-zgody-b{flex:1 1 180px;min-height:46px;padding:0 18px;border-radius:var(--wmz-btn-r,12px);border:var(--wmz-ramka-szer,1px) solid var(--wmz-btn-tlo,var(--wmz-akcent));background:var(--wmz-btn-tlo,var(--wmz-akcent));color:var(--wmz-btn-tekst,#fff);font:inherit;font-weight:var(--wmz-btn-waga,600);cursor:pointer}
+.wm-zgody-b2{background:var(--wmz-btn2-tlo,transparent);color:var(--wmz-btn2-tekst,var(--wmz-akcent));border-color:var(--wmz-btn2-ramka,var(--wmz-akcent))}
+.wm-zgody-b:hover{filter:var(--wmz-btn-filtr,brightness(1.08))}
+.wm-zgody-b:not(.wm-zgody-b2):hover{background:var(--wmz-btn-tlo-h,var(--wmz-btn-tlo,var(--wmz-akcent)));color:var(--wmz-btn-tekst-h,var(--wmz-btn-tekst,#fff))}
+.wm-zgody-b:focus-visible,.wm-zgody-ikona:focus-visible,.wm-zgody-k:focus-within{outline:3px solid var(--wmz-fokus,var(--wmz-akcent));outline-offset:2px}
+.wm-zgody-ikona{position:fixed;left:16px;bottom:16px;z-index:2147482999;width:44px;height:44px;padding:0;border-radius:var(--wmz-ikona-r,50%);border:var(--wmz-ramka-szer,1px) solid var(--wmz-ramka,#dbe5f7);background:var(--wmz-tlo,#fff);color:var(--wmz-link,#2563eb);cursor:pointer;box-shadow:var(--wmz-cien,0 10px 24px -14px rgba(15,31,61,.5));display:flex;align-items:center;justify-content:center}
+.wm-zgody-ikona svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:560px){.wm-zgody{left:8px;right:8px;bottom:8px}.wm-zgody-in{padding:18px}.wm-zgody-b{flex-basis:100%}}
+/* bez animacji wejscia: baner bywa najwiekszym elementem pierwszego ekranu (LCP), animacja od opacity 0 opoznia pomiar */
+/* telefon: baner nie zaslania wiekszosci ekranu (1.2.2); akceptacja i odmowa w jednym rzedzie, ta sama waga */
+@media(max-width:560px){.wm-zgody-in{padding:14px 16px}.wm-zgody-t{margin-bottom:4px;font-size:16px}.wm-zgody-p{font-size:13.5px;line-height:1.5}.wm-zgody-btns{gap:8px;margin-top:12px}.wm-zgody-b{flex:1 1 calc(50% - 4px);min-height:44px;padding:4px 8px;font-size:14px;line-height:1.25}}
+/* ikona nie nachodzi na otwarta szuflade menu mobilnego (motywy GLAI) */
+body:has(.glai-mobile-check:checked) .wm-zgody-ikona{visibility:hidden}

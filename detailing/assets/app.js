@@ -119,14 +119,7 @@
     });
   });
 
-  // baner cookies (przyklad)
-  var ck=document.getElementById('cookies');
-  function setCk(open){if(!ck)return;ck.hidden=!open;document.body.classList.toggle('cookies-open',open);}
-  if(ck){
-    if(!store('obs-cookies'))setCk(true);
-    ck.querySelectorAll('[data-ck]').forEach(function(b){b.addEventListener('click',function(){store('obs-cookies',b.getAttribute('data-ck'));setCk(false);});});
-    document.querySelectorAll('[data-ck-open]').forEach(function(b){b.addEventListener('click',function(){setCk(true);ck.querySelector('button').focus();});});
-  }
+  /* baner zgod: wm-zgody (assets/wm-zgody, _narzedzia/wm-zgody-demo.py) */
 
   // liczniki
   function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ');}

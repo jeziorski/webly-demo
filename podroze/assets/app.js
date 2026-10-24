@@ -541,17 +541,7 @@
     });
   });
 
-  /* Baner cookies (informacyjny, przyklad) */
-  var banner = document.querySelector('.cookie-banner');
-  if (banner) {
-    if (!store('kadr-cookies')) banner.hidden = false;
-    banner.querySelectorAll('[data-cookie]').forEach(function (b) {
-      b.addEventListener('click', function () { store('kadr-cookies', b.getAttribute('data-cookie')); banner.hidden = true; });
-    });
-    document.querySelectorAll('[data-cookie-open]').forEach(function (a) {
-      a.addEventListener('click', function (e) { e.preventDefault(); banner.hidden = false; var f = banner.querySelector('button'); if (f) f.focus(); });
-    });
-  }
+  /* baner zgod: wm-zgody (assets/wm-zgody, _narzedzia/wm-zgody-demo.py) */
 
   /* Rok w stopce */
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });

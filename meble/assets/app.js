@@ -325,14 +325,7 @@
     })});
   }
 
-  /* ===== Cookies (przykład) ===== */
-  var ck=$('#cookies');
-  if(ck){
-    if(!czytaj('sloje-cookies',null))ck.hidden=false;
-    $$('[data-cookies]',ck).forEach(function(b){b.addEventListener('click',function(){zapisz('sloje-cookies',b.dataset.cookies);ck.hidden=true})});
-    var zc=$('#zarzadzaj-cookies');
-    if(zc)zc.addEventListener('click',function(){ck.hidden=false;ck.querySelector('button').focus()});
-  }
+  /* baner zgod: wm-zgody (assets/wm-zgody, _narzedzia/wm-zgody-demo.py) */
 })();
 
 /* ===== Etap 3: głębia, orbity, konfigurator, strona produktu jako landing ===== */

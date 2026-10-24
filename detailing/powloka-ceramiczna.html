@@ -12,8 +12,57 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://obsydian.example/index.html"}, {"@type": "ListItem", "position": 2, "name": "Usługi", "item": "https://obsydian.example/index.html#uslugi"}, {"@type": "ListItem", "position": 3, "name": "Powłoka ceramiczna"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Powłoka ceramiczna", "description": "Korekta i powłoka ceramiczna na lakier, felgi i szyby.", "areaServed": "Poznań", "provider": {"@type": "AutoRepair", "name": "Obsydian Studio Detailingu", "telephone": "+48 612 400 512"}}</script>
+<!-- wm-zgody -->
+<link rel="stylesheet" href="../assets/wm-zgody/wm-zgody.css">
+<style>.wm-zgody,.wm-zgody-ikona{--wmz-tlo:#121214;--wmz-tekst:#f2f1ee;--wmz-tekst2:#a9a8a4;--wmz-ramka:#2f3035;--wmz-akcent:#ff6a1a;--wmz-link:#ff8a47;--wmz-btn-tlo:#ff6a1a;--wmz-btn-tekst:#120802;--wmz-btn2-tekst:#f2f1ee;--wmz-btn2-ramka:#a9a8a4;--wmz-r:18px;--wmz-btn-r:12px;--wmz-font:var(--body,inherit)}</style>
+<noscript><style>.wm-zgody{display:none!important}</style></noscript>
+<script>
+var wmzDL=window.dataLayer=(window.dataLayer||[]);function gtag(){wmzDL.push(arguments);}
+(function(){var p=location.pathname,i=p.indexOf("/detailing/");window.wmZgodyCfg={gtm:"",bv:"1",pv:"1",m:1,f:0,s:"detailing",cp:i<0?"/":p.slice(0,i+11)};})();
+(function(c){
+  gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',functionality_storage:'granted',personalization_storage:'granted',security_storage:'granted',wait_for_update:500});
+  var m=document.cookie.match(/(?:^|; )wm_zgoda=([^;]+)/),z=null;
+  try{z=m?JSON.parse(decodeURIComponent(m[1])):null;}catch(e){z=null;}
+  var ok=z&&typeof z==="object"&&z.v===c.bv&&z.pv===c.pv&&z.cat&&typeof z.cat==="object"&&(z.cat.a===0||z.cat.a===1)&&(z.cat.m===0||z.cat.m===1)&&z.s===c.s;
+  if(!ok){window.wmZgoda=null;return;}
+  window.wmZgoda=window.wmZgodyStart=z;document.documentElement.classList.add('wmz-ok');
+  var a=z.cat.a?'granted':'denied',k=z.cat.m?'granted':'denied';
+  gtag('consent','update',{analytics_storage:a,ad_storage:k,ad_user_data:k,ad_personalization:k});
+})(window.wmZgodyCfg);
+</script>
+<script src="../assets/wm-zgody/wm-zgody.min.js" defer></script>
+<!-- /wm-zgody -->
 </head>
 <body>
+<!-- wm-zgody -->
+<div class="wm-zgody" id="wm-zgody" role="region" aria-labelledby="wm-zgody-t">
+  <div class="wm-zgody-in">
+    <p class="wm-zgody-t" id="wm-zgody-t">Szanujemy Twoją prywatność</p>
+    <p class="wm-zgody-p">Używamy plików cookies niezbędnych do działania strony. Za Twoją zgodą korzystamy też z cookies analitycznych (Google Analytics), żeby wiedzieć, co ulepszać, i marketingowych (piksel Meta, Google Ads), żeby mierzyć skuteczność reklam. Możesz zaakceptować wszystkie, odrzucić wszystkie albo wybrać sam. W tej wersji demonstracyjnej nie wczytujemy żadnych narzędzi śledzących. <a href="polityka-prywatnosci.html">Polityka prywatności</a>.</p>
+    <form class="wm-zgody-kat" id="wm-zgody-kat" hidden>
+      <label class="wm-zgody-k">
+        <input type="checkbox" name="n" checked disabled>
+        <span><b>Niezbędne</b>Działanie strony, bezpieczeństwo i zapamiętanie Twojego wyboru w tym banerze. Zawsze włączone.</span>
+      </label>
+      <label class="wm-zgody-k">
+        <input type="checkbox" name="a">
+        <span><b>Analityczne</b>Google Analytics 4 (Google): statystyki odwiedzin i korzystania ze strony. Dane mogą trafiać poza EOG na podstawie decyzji o adekwatności lub standardowych klauzul umownych.</span>
+      </label>
+      <label class="wm-zgody-k">
+        <input type="checkbox" name="m">
+        <span><b>Marketingowe</b>Piksel Meta (Meta Platforms Ireland) i Google Ads (Google): pomiar skuteczności reklam i dopasowanie reklam do osób, które odwiedziły stronę.</span>
+      </label>
+    </form>
+    <div class="wm-zgody-btns">
+      <button type="button" class="wm-zgody-b" data-wm="tak">Akceptuję wszystkie</button>
+      <button type="button" class="wm-zgody-b" data-wm="nie">Odrzucam wszystkie</button>
+      <button type="button" class="wm-zgody-b wm-zgody-b2" data-wm="ustawienia" aria-expanded="false" aria-controls="wm-zgody-kat">Ustawienia</button>
+      <button type="button" class="wm-zgody-b wm-zgody-b2" data-wm="zapisz" hidden>Zapisz wybór</button>
+    </div>
+  </div>
+</div>
+<button type="button" class="wm-zgody-ikona" data-wm="otworz" aria-label="Ustawienia cookies" title="Ustawienia cookies" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 4 4 0 0 1-4-4 4 4 0 0 1-4-4 1 1 0 0 0-1-1Z"/><circle cx="8.5" cy="10.5" r="1"/><circle cx="12" cy="15.5" r="1"/><circle cx="16" cy="13" r="1"/></svg></button>
+<!-- /wm-zgody -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="i-arrow" viewBox="0 0 24 24"><path pathLength="1" d="M5 12h14"/><path pathLength="1" d="M13 6l6 6-6 6"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path pathLength="1" d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path pathLength="1" d="M12 5v14"/><path pathLength="1" d="M5 12h14"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path pathLength="1" d="M6 6l12 12"/><path pathLength="1" d="M18 6L6 18"/></symbol><symbol id="i-chev" viewBox="0 0 24 24"><path pathLength="1" d="M6 9l6 6 6-6"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path pathLength="1" d="M4 7h16"/><path pathLength="1" d="M4 12h16"/><path pathLength="1" d="M4 17h16"/></symbol><symbol id="i-knob" viewBox="0 0 24 24"><path pathLength="1" d="M9 7l-5 5 5 5"/><path pathLength="1" d="M15 7l5 5-5 5"/></symbol><symbol id="i-tel" viewBox="0 0 24 24"><path pathLength="1" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><path pathLength="1" d="M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path pathLength="1" d="M3 7l9 6 9-6"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path pathLength="1" d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><path pathLength="1" d="M14.5 9.5a2.5 2.5 0 1 1-5 0a2.5 2.5 0 1 1 5 0"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><path pathLength="1" d="M21 12a9 9 0 1 1-18 0a9 9 0 1 1 18 0"/><path pathLength="1" d="M12 7v5l3 2"/></symbol><symbol id="i-polerka" viewBox="0 0 24 24"><path pathLength="1" d="M3 8.5h10a2 2 0 0 1 2 2a2 2 0 0 1-2 2H3z"/><path pathLength="1" d="M12 12.5v2.5"/><path pathLength="1" d="M8 15h11a2 2 0 0 1 0 4H8a2 2 0 0 1 0-4z"/><path pathLength="1" d="M6.5 21.5c3.5.8 9 .8 12.5 0"/></symbol><symbol id="i-folia" viewBox="0 0 24 24"><path pathLength="1" d="M3 4h18v16H3z"/><path pathLength="1" d="M13 20l8-8"/><path pathLength="1" d="M21 12c-.6 4.2-3.2 7-8 8"/><path pathLength="1" d="M6.5 8l3 0"/><path pathLength="1" d="M6.5 11l5 0"/></symbol><symbol id="i-kropla" viewBox="0 0 24 24"><path pathLength="1" d="M12 3c3 4 5 6.5 5 9a5 5 0 0 1-10 0c0-2.5 2-5 5-9z"/><path pathLength="1" d="M9.8 12.6a2.4 2.4 0 0 0 1.7 2.2"/><path pathLength="1" d="M3 21h18"/></symbol><symbol id="i-fotel" viewBox="0 0 24 24"><path pathLength="1" d="M8 2.5h3.5v3H8z"/><path pathLength="1" d="M8.2 6.5h3.6L13 15H9.2z"/><path pathLength="1" d="M9.2 15H18a2 2 0 0 1 0 4H9.2z"/><path pathLength="1" d="M8 21.5h11"/></symbol><symbol id="i-lampa" viewBox="0 0 24 24"><path pathLength="1" d="M4 16l7-7 3 3-7 7z"/><path pathLength="1" d="M7 19l-2 2"/><path pathLength="1" d="M15.5 6.5l2-2"/><path pathLength="1" d="M17.5 9.5l2.5-.5"/><path pathLength="1" d="M13 4l.5-2.5"/></symbol><symbol id="i-miernik" viewBox="0 0 24 24"><path pathLength="1" d="M6 3h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path pathLength="1" d="M7 6h6v4H7z"/><path pathLength="1" d="M10 16v3.5"/><path pathLength="1" d="M4 21h12"/><path pathLength="1" d="M19 8v8"/><path pathLength="1" d="M21 10v4"/></symbol><symbol id="i-raport" viewBox="0 0 24 24"><path pathLength="1" d="M7 4h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path pathLength="1" d="M9 2.5h6v3H9z"/><path pathLength="1" d="M8.5 11h7"/><path pathLength="1" d="M8.5 14.5h7"/><path pathLength="1" d="M8.5 18h4"/></symbol><symbol id="i-odbior" viewBox="0 0 24 24"><path pathLength="1" d="M2 16V8h11v8"/><path pathLength="1" d="M13 11h4l3 3v2h-7"/><path pathLength="1" d="M9 17a2 2 0 1 1-4 0a2 2 0 1 1 4 0"/><path pathLength="1" d="M19 17a2 2 0 1 1-4 0a2 2 0 1 1 4 0"/></symbol><symbol id="i-kalendarz" viewBox="0 0 24 24"><path pathLength="1" d="M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path pathLength="1" d="M3 10h18"/><path pathLength="1" d="M8 3v4"/><path pathLength="1" d="M16 3v4"/><path pathLength="1" d="M9 15l2 2 4-4"/></symbol><symbol id="i-tarcza" viewBox="0 0 24 24"><path pathLength="1" d="M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z"/><path pathLength="1" d="M8.5 12l2.5 2.5 4.5-5"/></symbol><symbol id="i-kamien" viewBox="0 0 24 24"><path pathLength="1" d="M3 7l2.5-2 3 .5 1 2.5-1.5 2.5-3 .3L3 9z"/><path pathLength="1" d="M11 9l4 2.5"/><path pathLength="1" d="M19 3v18"/><path pathLength="1" d="M17 12h-1.5"/><path pathLength="1" d="M17.5 9.5l-1.2-.8"/><path pathLength="1" d="M17.5 14.5l-1.2.8"/></symbol><symbol id="i-slonce" viewBox="0 0 24 24"><path pathLength="1" d="M16 12a4 4 0 1 1-8 0a4 4 0 1 1 8 0"/><path pathLength="1" d="M12 2v2.5"/><path pathLength="1" d="M12 19.5V22"/><path pathLength="1" d="M2 12h2.5"/><path pathLength="1" d="M19.5 12H22"/><path pathLength="1" d="M4.9 4.9l1.8 1.8"/><path pathLength="1" d="M17.3 17.3l1.8 1.8"/><path pathLength="1" d="M4.9 19.1l1.8-1.8"/><path pathLength="1" d="M17.3 6.7l1.8-1.8"/></symbol><symbol id="i-wiadro" viewBox="0 0 24 24"><path pathLength="1" d="M5 9h14l-1.5 11h-11z"/><path pathLength="1" d="M8 9a4 4 0 0 1 8 0"/><path pathLength="1" d="M9 13.5h6"/></symbol><symbol id="i-zapach" viewBox="0 0 24 24"><path pathLength="1" d="M4 9c2-2 4 2 6 0s4 2 6 0 3-1 4-1"/><path pathLength="1" d="M4 14c2-2 4 2 6 0s4 2 6 0 3-1 4-1"/><path pathLength="1" d="M4 19c2-2 4 2 6 0"/></symbol><symbol id="i-auto" viewBox="0 0 24 24"><path pathLength="1" d="M3 15v-3l2.5-4.5h10.5L19.5 11l1.5 1v3h-2"/><path pathLength="1" d="M5 15h-2"/><path pathLength="1" d="M9 15h6"/><path pathLength="1" d="M9 15.5a2 2 0 1 1-4 0a2 2 0 1 1 4 0"/><path pathLength="1" d="M19 15.5a2 2 0 1 1-4 0a2 2 0 1 1 4 0"/></symbol><symbol id="i-temp" viewBox="0 0 24 24"><path pathLength="1" d="M10 4a2 2 0 0 1 4 0v10.5a4 4 0 1 1-4 0z"/><path pathLength="1" d="M12 9v8"/></symbol><symbol id="i-aparat" viewBox="0 0 24 24"><path pathLength="1" d="M5 6h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/><path pathLength="1" d="M15.5 13a3.5 3.5 0 1 1-7 0a3.5 3.5 0 1 1 7 0"/><path pathLength="1" d="M8 6l1.5-2h5L16 6"/></symbol><symbol id="i-warstwy" viewBox="0 0 24 24"><path pathLength="1" d="M12 3l9 5-9 5-9-5z"/><path pathLength="1" d="M3 12.5l9 5 9-5"/><path pathLength="1" d="M3 17l9 5 9-5"/></symbol><symbol id="i-skora" viewBox="0 0 24 24"><path pathLength="1" d="M6 3h12l1 5-1 13H6L5 8z"/><path pathLength="1" d="M9 7h6"/><path pathLength="1" d="M8.5 11h7"/><path pathLength="1" d="M9 15h6"/></symbol></defs></svg>
 <a class="skip" href="#tresc">Przejdź do treści</a>
 <header class="header" id="top">
@@ -337,7 +386,7 @@
           <li><a href="blog/index.html">Blog i poradniki</a></li>
           <li><a href="kontakt.html">Kontakt i dojazd</a></li>
           <li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li>
-          <li><button type="button" class="linkbtn" data-ck-open>Zarządzaj cookies</button></li>
+          <li><button type="button" class="linkbtn" data-ck-open data-wm-zgody>Zarządzaj cookies</button></li>
         </ul>
       </div>
       <div class="f-news">
@@ -360,10 +409,6 @@
 <div class="mbar" id="mbar" aria-hidden="true">
   <a href="tel:+48612400512" class="btn btn-ghost" tabindex="-1">Zadzwoń</a>
   <a href="kontakt.html#wycena" class="btn btn-primary" tabindex="-1">Szybka wycena</a>
-</div>
-<div class="cookies" id="cookies" role="region" aria-label="Informacja o cookies" hidden>
-  <p><strong class="c-title">Cookies (przykład banera).</strong> Niezbędne pliki działają zawsze, analityczne i marketingowe tylko za Twoją zgodą. <a class="link" href="polityka-prywatnosci.html">Polityka prywatności</a></p>
-  <div class="c-actions"><button type="button" class="btn" data-ck="tak">Akceptuję</button><button type="button" class="btn" data-ck="nie">Odrzucam</button></div>
 </div>
 <script src="assets/app.js"></script>
 </body>

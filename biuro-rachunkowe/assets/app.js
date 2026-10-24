@@ -225,11 +225,5 @@
     });
   }
 
-  /* Baner cookies (przyklad): rowne przyciski, zmiana zgody w stopce */
-  var ck=doc.getElementById('cookie');
-  if(ck){
-    if(!store('klarowna-cookies'))ck.hidden=false;
-    ck.querySelectorAll('[data-cookie]').forEach(function(b){b.addEventListener('click',function(){store('klarowna-cookies',b.getAttribute('data-cookie'));ck.hidden=true})});
-    doc.querySelectorAll('[data-cookie-open]').forEach(function(b){b.addEventListener('click',function(){ck.hidden=false;var f=ck.querySelector('button');if(f)f.focus()})});
-  }
+  /* baner zgod: wm-zgody (assets/wm-zgody, _narzedzia/wm-zgody-demo.py) */
 })();

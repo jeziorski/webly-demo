@@ -96,15 +96,5 @@
     });
   }
 
-  /* baner cookies (przyklad) */
-  var cookie=document.getElementById('cookie');
-  if(cookie){
-    var saved=store('z7-cookies');
-    if(!saved)cookie.hidden=false;
-    function close(val){store('z7-cookies',val);cookie.hidden=true}
-    cookie.querySelector('[data-c="yes"]').addEventListener('click',function(){close('all')});
-    cookie.querySelector('[data-c="no"]').addEventListener('click',function(){close('none')});
-    cookie.querySelector('[data-c="save"]').addEventListener('click',function(){close('custom')});
-    document.querySelectorAll('[data-cookies]').forEach(function(b){b.addEventListener('click',function(){cookie.hidden=false;cookie.querySelector('button').focus()})});
-  }
+  /* baner zgod: wm-zgody (assets/wm-zgody, _narzedzia/wm-zgody-demo.py) */
 })();
